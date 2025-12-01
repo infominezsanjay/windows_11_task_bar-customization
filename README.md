@@ -12,8 +12,11 @@ A sleek, **Windows 11-style Taskbar Widget** that combines a **real-time Traffic
 
 *   **📊 Real-Time Traffic Monitor**: Monitor your network upload and download speeds instantly.
 *   **💻 System Stats**: Keep an eye on your CPU and Memory usage with a clean, stacked layout.
-*   **🎵 Universal Music Player**: Control your music (Play, Pause, Next, Previous) from any media player (Spotify, Chrome, VLC, etc.) directly from your taskbar.
-*   **🎨 Native Aesthetics**: Designed with a dark theme, transparency, and dimensions (48px height) that match the native Windows 11 taskbar.
+*   **🎵 Advanced Music Control**: 
+    *   **Now Playing**: Displays current song title, artist, and album art.
+    *   **Dynamic Controls**: Play/Pause button updates based on actual playback state.
+    *   **Universal Support**: Works with Spotify, YouTube (Chrome/Edge), VLC, and more.
+*   **🎨 Native Aesthetics**: Designed with a dark theme, transparency, and compact dimensions that match the native Windows 11 taskbar.
 *   **🚀 Auto-Startup**: Automatically launches silently in the background when you log in.
 *   **🖱️ Draggable & Persistent**: Drag it anywhere (defaults to the left) and it stays on top of other windows.
 
@@ -26,7 +29,7 @@ A sleek, **Windows 11-style Taskbar Widget** that combines a **real-time Traffic
     ```
 
 2.  **Install Dependencies**
-    Ensure you have Python installed. Then run:
+    Ensure you have Python installed (Python 3.10+ recommended). Then run:
     ```bash
     pip install -r requirements.txt
     ```
@@ -49,8 +52,16 @@ To have the widget start automatically with Windows:
 ## 🧩 Requirements
 
 *   Windows 10 or Windows 11
-*   Python 3.x
-*   Libraries: `psutil`, `pillow`, `pyautogui`
+*   Python 3.10 or higher
+*   **Core Libraries**: `psutil`, `pillow`, `pyautogui`
+*   **Windows Runtime Libraries**: `winrt-runtime`, `winrt-Windows.Media.Control`, `winrt-Windows.Storage.Streams`, `winrt-Windows.Foundation`
+
+## ❓ Troubleshooting
+
+*   **Music Info Not Showing?** 
+    Ensure you have enabled "Show media controls" in your browser or music app settings. For Windows 11, ensure the "Global Media Transport Controls" are active (usually automatic).
+*   **WinRT Installation Issues?**
+    If `pip install` fails for the winrt packages, ensure you have the latest pip: `python -m pip install --upgrade pip`.
 
 ## 🤝 Contributing
 
@@ -61,4 +72,4 @@ Contributions are welcome! If you have ideas for new features (like weather inte
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
-*Keywords: Windows 11 Taskbar, Traffic Monitor, Network Speed Meter, Python Widget, System Monitor, Music Controller, Taskbar Customization, Desktop Widget*
+*Keywords: Windows 11 Taskbar, Traffic Monitor, Network Speed Meter, Python Widget, System Monitor, Music Controller, Taskbar Customization, Desktop Widget, WinRT, Media Controls*
