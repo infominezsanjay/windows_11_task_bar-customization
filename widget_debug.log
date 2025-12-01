@@ -4369,3 +4369,50 @@ TypeError: ConfigManager.get() takes 2 positional arguments but 3 were given
 2025-12-01 13:30:52,244 - INFO - Applying gains: [8.0, 6.0, 4.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 2025-12-01 13:30:52,253 - INFO - Applied EQ settings: [8.0, 6.0, 4.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 2025-12-01 13:30:52,255 - INFO - EQ applied successfully
+2025-12-01 13:31:24,262 - INFO - === Creating Equalizer Dialog ===
+2025-12-01 13:31:24,276 - INFO - Dialog created, checking Equalizer APO...
+2025-12-01 13:31:24,288 - INFO - APO Available: True
+2025-12-01 13:31:24,288 - INFO - Building UI...
+2025-12-01 13:31:24,299 - INFO - Current gains: [8.0, 6.0, 4.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+2025-12-01 13:31:24,301 - INFO - Created 10 sliders
+2025-12-01 13:31:24,304 - INFO - UI built successfully
+2025-12-01 13:31:24,339 - INFO - Dialog ready
+2025-12-01 13:31:24,459 - INFO - Applied EQ settings: [8.0, 6.0, 4.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+2025-12-01 13:33:48,532 - INFO - Found Equalizer APO at: C:\Program Files\EqualizerAPO
+2025-12-01 13:38:35,882 - INFO - === Creating Equalizer Dialog ===
+2025-12-01 13:38:35,897 - INFO - Dialog created, checking Equalizer APO...
+2025-12-01 13:38:35,897 - INFO - APO Available: True
+2025-12-01 13:38:35,897 - INFO - Building UI...
+2025-12-01 13:38:35,925 - INFO - Current gains: [8.0, 6.0, 4.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+2025-12-01 13:38:35,928 - INFO - Created 10 sliders
+2025-12-01 13:38:35,936 - INFO - UI built successfully
+2025-12-01 13:38:35,981 - INFO - Dialog ready
+2025-12-01 13:38:36,088 - INFO - Applied EQ settings: [8.0, 6.0, 4.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+2025-12-01 13:38:36,091 - INFO - Created reload marker file
+2025-12-01 13:38:36,091 - INFO - Updated config file timestamp
+2025-12-01 13:38:40,012 - INFO - Applied EQ settings: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+2025-12-01 13:38:40,013 - INFO - Created reload marker file
+2025-12-01 13:38:40,013 - INFO - Updated config file timestamp
+2025-12-01 13:38:50,825 - INFO - Applied EQ settings: [4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+2025-12-01 13:38:50,825 - INFO - Created reload marker file
+2025-12-01 13:38:50,825 - INFO - Updated config file timestamp
+2025-12-01 13:38:51,273 - INFO - Applied EQ settings: [12.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+2025-12-01 13:38:51,273 - INFO - Created reload marker file
+2025-12-01 13:38:51,273 - INFO - Updated config file timestamp
+2025-12-01 13:38:52,734 - INFO - Applied EQ settings: [12.0, 0.0, 0.0, -9.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+2025-12-01 13:38:52,734 - INFO - Created reload marker file
+2025-12-01 13:38:52,734 - INFO - Updated config file timestamp
+2025-12-01 13:38:53,450 - INFO - Applied EQ settings: [12.0, 0.0, 0.0, -9.0, -10.5, 0.0, 0.0, 0.0, 0.0, 0.0]
+2025-12-01 13:38:53,450 - INFO - Created reload marker file
+2025-12-01 13:38:53,451 - INFO - Updated config file timestamp
+2025-12-01 13:38:54,305 - INFO - Applied EQ settings: [12.0, 0.0, 0.0, -9.0, -10.5, 12.0, 0.0, 0.0, 0.0, 0.0]
+2025-12-01 13:38:54,306 - INFO - Created reload marker file
+2025-12-01 13:38:54,306 - INFO - Updated config file timestamp
+2025-12-01 13:38:55,040 - INFO - Applied EQ settings: [12.0, 0.0, 0.0, -9.0, -10.5, 12.0, 12.0, 0.0, 0.0, 0.0]
+2025-12-01 13:38:55,040 - INFO - Created reload marker file
+2025-12-01 13:38:55,040 - INFO - Updated config file timestamp
+2025-12-01 13:38:56,692 - INFO - Applying gains: [12.0, 0.0, 0.0, -9.0, -10.5, 12.0, 12.0, 0.0, 0.0, 0.0]
+2025-12-01 13:38:56,702 - INFO - Applied EQ settings: [12.0, 0.0, 0.0, -9.0, -10.5, 12.0, 12.0, 0.0, 0.0, 0.0]
+2025-12-01 13:38:56,702 - INFO - Created reload marker file
+2025-12-01 13:38:56,702 - INFO - Updated config file timestamp
+2025-12-01 13:38:56,703 - INFO - EQ applied successfully

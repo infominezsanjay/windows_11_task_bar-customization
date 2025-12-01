@@ -125,6 +125,14 @@ class EqualizerDialog:
         
         logging.info(f"Created {len(self.sliders)} sliders")
         
+        # Info label
+        info_frame = tk.Frame(self.dialog, bg=bg)
+        info_frame.pack(pady=5)
+        
+        info_text = "💡 Tip: Changes apply in real-time. Equalizer APO must be installed and a device configured."
+        tk.Label(info_frame, text=info_text, font=("Segoe UI", 9), 
+                bg=bg, fg="#888888", wraplength=700).pack()
+        
         # Buttons
         btn_frame = tk.Frame(self.dialog, bg=bg)
         btn_frame.pack(pady=15)
@@ -139,6 +147,10 @@ class EqualizerDialog:
         
         tk.Button(btn_frame, text="Close", command=self.dialog.destroy,
                  bg="#555555", fg=fg, relief="flat", padx=20, pady=10,
+                 font=("Segoe UI", 10), cursor="hand2").pack(side="left", padx=5)
+        
+        tk.Button(btn_frame, text="❓ Setup Help", command=self.show_help,
+                 bg="#ff9800", fg="#000000", relief="flat", padx=15, pady=10,
                  font=("Segoe UI", 10), cursor="hand2").pack(side="left", padx=5)
     
     def center_dialog(self):
@@ -216,3 +228,39 @@ class EqualizerDialog:
         else:
             messagebox.showerror("Error", 
                 "Failed to apply equalizer settings.\n\nMake sure Equalizer APO is properly installed and configured.")
+    
+    def show_help(self):
+        """Show setup help dialog"""
+        help_text = """
+🎚️ Equalizer APO Setup Guide
+
+If the equalizer isn't affecting your audio:
+
+1️⃣ VERIFY INSTALLATION
+   • Equalizer APO must be installed from:
+     https://sourceforge.net/projects/equalizerapo/
+   
+2️⃣ CONFIGURE YOUR DEVICE
+   • Open: C:\\Program Files\\EqualizerAPO\\Configurator.exe
+   • CHECK the box next to your playback device (speakers/headphones)
+   • Click "OK"
+   
+3️⃣ RESTART YOUR COMPUTER
+   • This is REQUIRED after device configuration!
+   
+4️⃣ TEST THE EQUALIZER
+   • Play some music
+   • Move the sliders in this window
+   • Changes should apply in 1-2 seconds
+   
+5️⃣ TROUBLESHOOTING
+   • If still not working:
+     - Make sure the correct audio device is selected in Windows
+     - Disable "Exclusive Mode" in Windows Sound settings
+     - Check that no other audio effects are conflicting
+     - Try restarting your media player
+
+💡 The sliders directly modify:
+   C:\\Program Files\\EqualizerAPO\\config\\config.txt
+"""
+        messagebox.showinfo("Setup Help", help_text)

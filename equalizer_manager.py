@@ -158,14 +158,34 @@ class EqualizerManager:
     def reload_config(self):
         """Trigger Equalizer APO to reload configuration"""
         try:
-            # Try to find and run the configurator to reload
-            configurator = self.apo_path / "Configurator.exe"
-            if configurator.exists():
-                # Just opening and closing triggers reload
-                subprocess.Popen([str(configurator), "/reload"], 
-                               creationflags=subprocess.CREATE_NO_WINDOW)
+            # Method 1: Use the built-in command line tool
+            editor_exe = self.apo_path / "Editor.exe"
+            if editor_exe.exists():
+                # Editor.exe has a command to reload config
+                subprocess.run([str(editor_exe), "-reload"], 
+                             capture_output=True,
+                             creationflags=subprocess.CREATE_NO_WINDOW,
+                             timeout=2)
+                logging.info("Config reloaded via Editor.exe")
+                return
         except Exception as e:
-            logging.debug(f"Could not reload config: {e}")
+            logging.debug(f"Editor.exe reload failed: {e}")
+        
+        try:
+            # Method 2: Touch a marker file that APO watches
+            marker_file = self.apo_path / "config" / "config.txt.reload"
+            marker_file.touch()
+            logging.info("Created reload marker file")
+        except Exception as e:
+            logging.debug(f"Marker file creation failed: {e}")
+        
+        try:
+            # Method 3: Modify file timestamp to trigger reload
+            import time
+            os.utime(self.config_path, None)
+            logging.info("Updated config file timestamp")
+        except Exception as e:
+            logging.debug(f"Timestamp update failed: {e}")
     
     def install_instructions(self):
         """Return installation instructions for Equalizer APO"""
