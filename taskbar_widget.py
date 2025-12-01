@@ -1,3 +1,15 @@
+"""
+Windows 11 Taskbar Widget & Traffic Monitor
+-------------------------------------------
+A lightweight, frameless widget for Windows 11 that displays:
+- Real-time Network Traffic (Upload/Download)
+- System Resource Usage (CPU/Memory)
+- Universal Music Player Controls
+
+Author: Antigravity (Generated)
+License: MIT
+"""
+
 import tkinter as tk
 from tkinter import ttk
 import psutil
@@ -9,6 +21,8 @@ import logging
 import traceback
 from PIL import Image, ImageTk
 import pyautogui
+
+VERSION = "1.0.0"
 
 # Setup logging
 logging.basicConfig(filename='widget_debug.log', level=logging.DEBUG, 
