@@ -71,18 +71,18 @@ class SystemMonitorWidget:
                                           bg="#333333", fg=self.fg_color)
             self.album_art_label.pack(side="left", padx=2)
             
-            # Controls & Info - Horizontal Layout
+            # Controls & Info - Vertical Stack next to Image
             self.music_info_frame = tk.Frame(self.music_frame, bg=self.bg_color)
             self.music_info_frame.pack(side="left", padx=5)
             
-            # Song Title
+            # Song Title (Top)
             self.song_title = tk.Label(self.music_info_frame, text="No Music", font=self.font_bold, 
                                      bg=self.bg_color, fg=self.fg_color, width=20, anchor="w")
-            self.song_title.pack(side="left", pady=0)
+            self.song_title.pack(side="top", fill="x", pady=0)
             
-            # Controls Frame
+            # Controls Frame (Bottom)
             self.controls_frame = tk.Frame(self.music_info_frame, bg=self.bg_color)
-            self.controls_frame.pack(side="left", padx=5)
+            self.controls_frame.pack(side="bottom", fill="x", anchor="w", pady=0)
             
             # Buttons (Prev, Play/Pause, Next) - Larger font size, no border
             button_font = ("Segoe UI", 12)
