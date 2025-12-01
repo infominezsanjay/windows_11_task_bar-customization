@@ -10,17 +10,45 @@ A sleek, **Windows 11-style Taskbar Widget** that combines a **real-time Traffic
 
 ## ✨ Features
 
-*   **📊 Real-Time Traffic Monitor**: Monitor your network upload and download speeds instantly.
-*   **💻 System Stats**: Keep an eye on your CPU and Memory usage with a clean, stacked layout.
-*   **🎵 Advanced Music Control**: 
-    *   **Now Playing**: Displays current song title, artist, and album art.
-    *   **Dynamic Controls**: Play/Pause button updates based on actual playback state.
-    *   **Universal Support**: Works with Spotify, YouTube (Chrome/Edge), VLC, and more.
-*   **🎨 Native Aesthetics**: Designed with a dark theme, transparency, and compact dimensions that match the native Windows 11 taskbar.
-*   **🚀 Auto-Startup**: Automatically launches silently in the background when you log in.
-*   **🖱️ Draggable & Persistent**: Drag it anywhere (defaults to the left) and it stays on top of other windows.
+### 📊 Real-Time Monitoring
+*   **Network Traffic**: Live upload/download speeds with color-coded indicators
+*   **System Resources**: CPU and RAM usage at a glance
+*   **Auto-Refresh**: Configurable update intervals (500ms - 5s)
+
+### 🎵 Advanced Music Control
+*   **Now Playing Display**: Song title, artist, and album artwork
+*   **Smart Playback Detection**: Dynamic play/pause button that reflects actual state
+*   **Universal Compatibility**: Works with Spotify, YouTube, VLC, Windows Media Player, and more
+*   **Audio Visualizer**: Real-time equalizer with 5 preset styles:
+    - **Default**: Balanced visualization
+    - **Bass**: Emphasizes low frequencies
+    - **Treble**: Highlights high frequencies  
+    - **Rock**: V-shaped profile (boosted bass & treble)
+    - **Pop**: Mid-range focused
+
+### 🎨 Customization
+*   **Visibility Controls**: Show/hide individual sections (Traffic, System Stats, Music)
+*   **Music Modes**:
+    - **Always Show**: Music section always visible
+    - **Auto-Hide**: Hides when no media is playing
+*   **Themes**: Dark mode (Light mode coming soon)
+*   **Transparency**: Adjustable opacity (95% default)
+*   **Persistent Settings**: All preferences saved automatically
+
+### 🖱️ User Experience
+*   **Draggable**: Click and drag to reposition anywhere on screen
+*   **Always On Top**: Stays visible above other windows
+*   **Context Menu**: Right-click for quick settings access
+*   **Native Aesthetics**: Matches Windows 11 taskbar design
+*   **Auto-Startup**: Optional silent launch on login
 
 ## 🛠️ Installation
+
+### Prerequisites
+*   Windows 10 or Windows 11
+*   Python 3.10 or higher
+
+### Setup Steps
 
 1.  **Clone the Repository**
     ```bash
@@ -29,7 +57,6 @@ A sleek, **Windows 11-style Taskbar Widget** that combines a **real-time Traffic
     ```
 
 2.  **Install Dependencies**
-    Ensure you have Python installed (Python 3.10+ recommended). Then run:
     ```bash
     pip install -r requirements.txt
     ```
@@ -39,37 +66,99 @@ A sleek, **Windows 11-style Taskbar Widget** that combines a **real-time Traffic
     python taskbar_widget.py
     ```
 
-## ⚙️ Setup Auto-Start
+## ⚙️ Configuration
 
-To have the widget start automatically with Windows:
+### Context Menu Options (Right-Click)
+
+*   **Show Traffic** - Toggle network speed monitor
+*   **Show System Stats** - Toggle CPU/RAM display
+*   **Music Modes**:
+    - Always Show Music
+    - Auto-Hide Music (when nothing playing)
+*   **Visualizer Style** - Choose from 5 EQ presets
+*   **Reset Position** - Return to default bottom-left corner
+*   **Exit** - Close the widget
+
+### Configuration File
+
+Settings are automatically saved to `widget_config.json`:
+
+```json
+{
+    "show_traffic": true,
+    "show_system": true,
+    "music_mode": "always",
+    "viz_preset": "Default",
+    "position": {"x": 0, "y": -1},
+    "theme": "dark"
+}
+```
+
+## 🚀 Auto-Start Setup
+
+To launch automatically with Windows:
 
 1.  Run the setup script:
     ```bash
     python setup_startup.py
     ```
-2.  This will create a `TaskbarMonitor.bat` file in your Windows Startup folder.
+2.  This creates `TaskbarMonitor.bat` in your Startup folder
+3.  Widget will launch silently on next login
 
 ## 🧩 Requirements
 
-*   Windows 10 or Windows 11
-*   Python 3.10 or higher
-*   **Core Libraries**: `psutil`, `pillow`, `pyautogui`
-*   **Windows Runtime Libraries**: `winrt-runtime`, `winrt-Windows.Media.Control`, `winrt-Windows.Storage.Streams`, `winrt-Windows.Foundation`
+*   **Core Libraries**: 
+    - `psutil` - System monitoring
+    - `Pillow` - Image processing
+    - `pyautogui` - Media key simulation
+*   **Windows Runtime Libraries**: 
+    - `winrt-runtime`
+    - `winrt-Windows.Media.Control`
+    - `winrt-Windows.Storage.Streams`
+    - `winrt-Windows.Foundation`
 
 ## ❓ Troubleshooting
 
-*   **Music Info Not Showing?** 
-    Ensure you have enabled "Show media controls" in your browser or music app settings. For Windows 11, ensure the "Global Media Transport Controls" are active (usually automatic).
-*   **WinRT Installation Issues?**
-    If `pip install` fails for the winrt packages, ensure you have the latest pip: `python -m pip install --upgrade pip`.
+**Music Info Not Showing?**
+- Ensure "Show media controls" is enabled in your browser/music app settings
+- Windows 11 Global Media Transport Controls must be active (usually automatic)
+- Try playing/pausing media to trigger detection
+
+**WinRT Installation Issues?**
+- Update pip: `python -m pip install --upgrade pip`
+- Install Visual C++ Redistributable if needed
+- Try installing packages individually if batch install fails
+
+**Widget Not Staying On Top?**
+- Check if another "always on top" app is conflicting
+- Try restarting the widget
+
+**High CPU Usage?**
+- Increase update interval in config (reduce refresh rate)
+- Disable visualizer if not needed
+
+## 🎯 Keyboard Shortcuts (Coming Soon)
+
+*   `Ctrl + Alt + M` - Toggle music controls
+*   `Ctrl + Alt + H` - Hide/Show widget
+*   `Ctrl + Alt + R` - Reset position
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you have ideas for new features (like weather integration, stock tickers, or more themes), feel free to fork the repo and submit a pull request.
+Contributions are welcome! Ideas for future features:
+- Weather integration
+- Stock ticker
+- Calendar events
+- Custom themes
+- Multi-monitor support
+- Spotify API integration for lyrics
+
+Feel free to fork and submit pull requests!
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ---
-*Keywords: Windows 11 Taskbar, Traffic Monitor, Network Speed Meter, Python Widget, System Monitor, Music Controller, Taskbar Customization, Desktop Widget, WinRT, Media Controls*
+
+**Keywords**: Windows 11 Taskbar, Traffic Monitor, Network Speed Meter, Python Widget, System Monitor, Music Controller, Taskbar Customization, Desktop Widget, WinRT, Media Controls, Audio Visualizer, EQ Presets

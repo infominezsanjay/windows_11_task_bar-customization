@@ -1,0 +1,11 @@
+{
+    "show_traffic": true,
+    "show_system": true,
+    "music_mode": "always",
+    "position": {
+        "x": 0,
+        "y": -1
+    },
+    "theme": "dark",
+    "viz_preset": "Bass"
+}
