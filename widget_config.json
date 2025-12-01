@@ -7,5 +7,6 @@
         "y": -1
     },
     "theme": "dark",
-    "viz_preset": "Bass"
+    "viz_preset": "Bass",
+    "eq_preset": "Bass Boost"
 }

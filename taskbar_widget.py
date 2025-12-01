@@ -26,7 +26,16 @@ import io
 
 import json
 
-VERSION = "1.1.0"
+# Import equalizer modules
+try:
+    from equalizer_manager import EqualizerManager
+    from equalizer_dialog import EqualizerDialog
+    EQUALIZER_AVAILABLE = True
+except ImportError as e:
+    logging.warning(f"Equalizer modules not available: {e}")
+    EQUALIZER_AVAILABLE = False
+
+VERSION = "1.2.0"
 
 # Setup logging
 logging.basicConfig(filename='widget_debug.log', level=logging.INFO, 
@@ -41,6 +50,7 @@ class ConfigManager:
         "show_system": True,
         "music_mode": "always", # "always" or "auto"
         "viz_preset": "Default", # Default, Bass, Treble, Rock, Pop
+        "eq_preset": "Flat", # Equalizer preset
         "position": {"x": 0, "y": -1},
         "theme": "dark"
     }
@@ -140,6 +150,13 @@ class SystemMonitorWidget:
     def __init__(self):
         try:
             self.config = ConfigManager()
+            
+            # Initialize Equalizer Manager
+            if EQUALIZER_AVAILABLE:
+                self.eq_manager = EqualizerManager()
+            else:
+                self.eq_manager = None
+            
             
             self.root = tk.Tk()
             self.root.title("System Monitor")
@@ -387,16 +404,11 @@ class SystemMonitorWidget:
         
         self.context_menu.add_separator()
         
-        # Visualizer Style
-        self.viz_menu = tk.Menu(self.context_menu, tearoff=0)
-        self.context_menu.add_cascade(label="Visualizer Style", menu=self.viz_menu)
-        
-        self.viz_preset_var = tk.StringVar(value=self.config.get("viz_preset"))
-        presets = ["Default", "Bass", "Treble", "Rock", "Pop"]
-        for p in presets:
-            self.viz_menu.add_radiobutton(label=p, variable=self.viz_preset_var, value=p, command=self.change_viz_preset)
+        # Audio Equalizer
+        if self.eq_manager:
+            self.context_menu.add_command(label="🎚️ Audio Equalizer...", command=self.open_equalizer)
+            self.context_menu.add_separator()
             
-        self.context_menu.add_separator()
         self.context_menu.add_command(label="Reset Position", command=self.set_initial_position)
         self.context_menu.add_command(label="Exit", command=self.exit_app)
 
@@ -423,6 +435,11 @@ class SystemMonitorWidget:
              
     def change_viz_preset(self):
         self.config.set("viz_preset", self.viz_preset_var.get())
+    
+    def open_equalizer(self):
+        """Open the equalizer dialog"""
+        if EQUALIZER_AVAILABLE and self.eq_manager:
+            EqualizerDialog(self.root, self.eq_manager, self.config)
 
     def apply_visibility(self):
         # Unpack all optional frames first to avoid order issues

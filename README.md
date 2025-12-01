@@ -26,6 +26,18 @@ A sleek, **Windows 11-style Taskbar Widget** that combines a **real-time Traffic
     - **Rock**: V-shaped profile (boosted bass & treble)
     - **Pop**: Mid-range focused
 
+### 🎚️ Professional Audio Equalizer
+*   **10-Band Graphic Equalizer**: Real system-wide audio enhancement
+*   **Frequency Bands**: 31Hz, 62Hz, 125Hz, 250Hz, 500Hz, 1kHz, 2kHz, 4kHz, 8kHz, 16kHz
+*   **Professional Presets**:
+    - Flat, Bass Boost, Treble Boost
+    - Rock, Pop, Classical, Jazz, Electronic
+    - Vocal Boost, Bass & Treble
+*   **Custom Profiles**: Adjust each band individually (-12dB to +12dB)
+*   **Real-Time Application**: Changes apply instantly to all system audio
+*   **Powered by Equalizer APO**: Industry-standard Windows audio processing
+*   **Persistent Settings**: Your EQ profile is saved automatically
+
 ### 🎨 Customization
 *   **Visibility Controls**: Show/hide individual sections (Traffic, System Stats, Music)
 *   **Music Modes**:
@@ -66,6 +78,18 @@ A sleek, **Windows 11-style Taskbar Widget** that combines a **real-time Traffic
     python taskbar_widget.py
     ```
 
+4.  **[Optional] Install Equalizer APO for Audio EQ**
+    
+    To enable the professional 10-band audio equalizer:
+    
+    a. Download Equalizer APO from [SourceForge](https://sourceforge.net/projects/equalizerapo/)
+    
+    b. Run the installer and select your audio playback device
+    
+    c. Restart your computer
+    
+    d. Right-click the widget and select "🎚️ Audio Equalizer..." to access the EQ controls
+
 ## ⚙️ Configuration
 
 ### Context Menu Options (Right-Click)
@@ -75,7 +99,8 @@ A sleek, **Windows 11-style Taskbar Widget** that combines a **real-time Traffic
 *   **Music Modes**:
     - Always Show Music
     - Auto-Hide Music (when nothing playing)
-*   **Visualizer Style** - Choose from 5 EQ presets
+*   **Visualizer Style** - Choose from 5 visual presets
+*   **🎚️ Audio Equalizer** - Open 10-band graphic equalizer (requires Equalizer APO)
 *   **Reset Position** - Return to default bottom-left corner
 *   **Exit** - Close the widget
 
