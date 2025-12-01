@@ -66,21 +66,23 @@ class SystemMonitorWidget:
             self.music_frame = tk.Frame(self.main_frame, bg=self.bg_color)
             self.music_frame.pack(side="left", padx=5)
             
-            # Album Art (Placeholder)
-            self.album_art_label = tk.Label(self.music_frame, text="♫", font=("Segoe UI", 12), 
-                                          bg="#333333", fg=self.fg_color, width=4)
+            # Album Art (Placeholder) - Removed fixed width, increased size support
+            self.album_art_label = tk.Label(self.music_frame, text="♫", font=("Segoe UI", 14), 
+                                          bg="#333333", fg=self.fg_color)
             self.album_art_label.pack(side="left", padx=2)
             
-            # Controls & Info
+            # Controls & Info - Horizontal Layout
             self.music_info_frame = tk.Frame(self.music_frame, bg=self.bg_color)
-            self.music_info_frame.pack(side="left", padx=2)
+            self.music_info_frame.pack(side="left", padx=5)
             
+            # Song Title
             self.song_title = tk.Label(self.music_info_frame, text="No Music", font=self.font_bold, 
-                                     bg=self.bg_color, fg=self.fg_color, width=15, anchor="w")
-            self.song_title.pack(side="top", fill="x", pady=0)
+                                     bg=self.bg_color, fg=self.fg_color, width=20, anchor="w")
+            self.song_title.pack(side="left", pady=0)
             
+            # Controls Frame
             self.controls_frame = tk.Frame(self.music_info_frame, bg=self.bg_color)
-            self.controls_frame.pack(side="bottom", fill="x", anchor="w", pady=0)
+            self.controls_frame.pack(side="left", padx=5)
             
             # Buttons (Prev, Play/Pause, Next) - Larger font size, no border
             button_font = ("Segoe UI", 12)
@@ -152,22 +154,23 @@ class SystemMonitorWidget:
     def update_media_ui(self, title, artist, image_data):
         # Update Title
         display_text = f"{title} - {artist}" if title else "No Music"
-        if len(display_text) > 20:
-            display_text = display_text[:18] + "..."
+        if len(display_text) > 25:
+            display_text = display_text[:22] + "..."
         self.song_title.config(text=display_text)
         
         # Update Image
         if image_data:
             try:
                 image = Image.open(io.BytesIO(image_data))
-                image = image.resize((32, 32), Image.Resampling.LANCZOS)
+                # Increased size to 40x40
+                image = image.resize((40, 40), Image.Resampling.LANCZOS)
                 photo = ImageTk.PhotoImage(image)
-                self.album_art_label.config(image=photo, text="")
+                self.album_art_label.config(image=photo, text="", width=0) # Reset width
                 self.album_art_label.image = photo # Keep reference
             except Exception as e:
                 logging.error(f"Image update error: {e}")
         else:
-            self.album_art_label.config(image="", text="♫")
+            self.album_art_label.config(image="", text="♫", width=4) # Restore width for text
     
     def update_playback_state(self, is_playing):
         """Update play/pause button based on playback state"""
